@@ -11,36 +11,48 @@
 
     <style>
         body {
-            font-family: sans-serif;
+            font-family: sans-serif, Arial;
             font-size: 16px;
             margin: 0;
             padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
         }
 
-        .user-photo__container {
-            border-radius: 15px;
-            width: 50px;
+        .content__container {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(167.3deg, rgba(255, 255, 255, 0.9) -31.33%, rgba(17, 162, 255, 0.9) 33.36%, rgba(225, 50, 251, 0.9) 96.77%);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+
+        @keyframes content__container {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
     </style>
 </head>
 <body>
     <div class="content__container">
-        <img src="" class="user-photo__container">
-
         <h1 class="username__container">Hello, ...</h1>
-
-
-        <span class="debug__container"></span>
-
     </div>
 
     <script>
         let tg = window.Telegram.WebApp;
 
-        document.querySelector('.user-photo__container').src = tg.initDataUnsafe.user.photo_url;
         document.querySelector('.username__container').textContent = `Hello, ${tg.initDataUnsafe.user.first_name} ${tg.initDataUnsafe.user.last_name}`;
 
-        document.querySelector('.debug__container').textContent = JSON.stringify(tg.initDataUnsafe, null, 2);
+        // document.querySelector('.debug__container').textContent = JSON.stringify(tg.initDataUnsafe, null, 2);
 
     </script>
 
