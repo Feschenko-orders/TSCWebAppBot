@@ -9,26 +9,33 @@
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
+    <style>
+        body {
+            font-family: sans-serif;
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .user-photo__container {
+            border-radius: 15px;
+            width: 50px;
+        }
+    </style>
 </head>
 <body>
-
     <div class="content__container">
-        <h1 class="username__container">Hello 1, anonym</h1>
+        <img src="" class="user-photo__container">
 
-        <span class="debug__container">
+        <h1 class="username__container">Hello, ...</h1>
 
-        </span>
     </div>
 
     <script>
-        let telegramMiniAppEngine = window.Telegram.WebApp;
+        let tg = window.Telegram.WebApp;
 
-        document.getElementsByClassName('debug__container')[0].innerHTML = telegramMiniAppEngine.platform + " " + telegramMiniAppEngine.initDataUnsafe.WebAppUser.username;
-
-        setTimeout(
-            () => document.getElementsByClassName('username__container')[0].innerHTML = telegramMiniAppEngine.initDataUnsafe.username,
-            1000
-        )
+        document.querySelector('.user-photo__container').src = tg.initDataUnsafe.user.photo_url;
+        document.querySelector('.username__container').textContent = `Hello, ${tg.initDataUnsafe.user.first_name} ${tg.initDataUnsafe.user.last_name}`;
 
     </script>
 
