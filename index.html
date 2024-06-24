@@ -21,12 +21,12 @@
     </div>
 
     <script>
-        let telegram = window.Telegram.WebApp;
+        let telegramMiniAppEngine = window.Telegram.WebApp;
 
-        document.getElementsByClassName('debug__container')[0].innerHTML = JSON.stringify(telegram.initDataUnsafe, null, 4);
+        document.getElementsByClassName('debug__container')[0].innerHTML = telegramMiniAppEngine.platform + " " + telegramMiniAppEngine.initDataUnsafe;
 
         setTimeout(
-            () => document.getElementsByClassName('username__container')[0].innerHTML = telegram.initDataUnsafe.username,
+            () => document.getElementsByClassName('username__container')[0].innerHTML = telegramMiniAppEngine.initDataUnsafe.username,
             1000
         )
 
