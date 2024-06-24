@@ -29,6 +29,9 @@
 
         <h1 class="username__container">Hello, ...</h1>
 
+
+        <span class="debug__container"></span>
+
     </div>
 
     <script>
@@ -36,6 +39,8 @@
 
         document.querySelector('.user-photo__container').src = tg.initDataUnsafe.user.photo_url;
         document.querySelector('.username__container').textContent = `Hello, ${tg.initDataUnsafe.user.first_name} ${tg.initDataUnsafe.user.last_name}`;
+
+        document.querySelector('.debug__container').textContent = JSON.stringify(tg.initDataUnsafe, null, 2);
 
     </script>
 
