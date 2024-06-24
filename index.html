@@ -23,7 +23,7 @@
     <script>
         let telegramMiniAppEngine = window.Telegram.WebApp;
 
-        document.getElementsByClassName('debug__container')[0].innerHTML = telegramMiniAppEngine.platform + " " + telegramMiniAppEngine.initDataUnsafe;
+        document.getElementsByClassName('debug__container')[0].innerHTML = telegramMiniAppEngine.platform + " " + telegramMiniAppEngine.initDataUnsafe.WebAppUser.username;
 
         setTimeout(
             () => document.getElementsByClassName('username__container')[0].innerHTML = telegramMiniAppEngine.initDataUnsafe.username,
