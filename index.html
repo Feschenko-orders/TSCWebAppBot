@@ -10,7 +10,11 @@
 <body>
 
     <div class="content__container">
-        <h1>Hello, anonym</h1>
+        <h1>Hello 1, anonym</h1>
+
+        <span class="debug__container">
+
+        </span>
     </div>
 
 
@@ -18,6 +22,8 @@
 
     <script>
         let telegram = window.Telegram.WebApp;
+
+        document.getElementsByClassName('debug__container')[0].innerHTML = JSON.stringify(telegram.initDataUnsafe, null, 4);
 
         setTimeout(() => document.getElementsByClassName('content__container')[0].innerHTML = '<h1>Hello, ' + telegram.initDataUnsafe.username + '</h1>', 1000)
 
